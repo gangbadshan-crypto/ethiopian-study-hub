@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ethiopian Study Hub</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fa;color:#17243a}
+header{background:#101d38;color:white;padding:22px 16px}
+header h1{margin:0;color:#40d6c2;font-size:25px}
+header p{color:#d2dbea}
+nav{display:flex;gap:8px;overflow-x:auto;padding:12px;background:#172b4d}
+nav button{background:transparent;color:white;border:0;padding:10px;white-space:nowrap}
+main{max-width:1000px;margin:auto;padding:18px}
+.hero{background:linear-gradient(120deg,#10264c,#087f91);color:white;padding:28px 20px;border-radius:18px}
+.hero h2{font-size:27px}
+h2,h3{color:#17345a}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:13px}
+.card{background:white;padding:20px;border-radius:13px;box-shadow:0 3px 12px #152d5010}
+.card button,.action{background:#087f91;color:white;border:0;padding:11px 15px;border-radius:8px;cursor:pointer}
+.card h3{margin-top:0}
+section{margin:28px 0}
+button{font-size:14px}
+button:hover{opacity:.85}
+#content{background:white;padding:20px;border-radius:14px;margin-top:18px}
+footer{background:#101d38;color:white;text-align:center;padding:28px 15px;margin-top:35px}
+footer h2{color:#40d6c2}
+.small{color:#b9c8dc;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<h1>📚 Ethiopian Study Hub</h1>
+<p>Your learning journey starts here.</p>
+</header>
+
+<nav>
+<button onclick="home()">Home</button>
+<button onclick="show('Textbook Library')">Textbooks</button>
+<button onclick="show('Practice Questions')">Practice</button>
+<button onclick="show('Entrance Exams')">Entrance Exams</button>
+<button onclick="show('Study Planner')">Study Planner</button>
+<button onclick="show('Study Tips')">Study Tips</button>
+</nav>
+
+<main>
+<div class="hero">
+<h2>Learn. Practice. Succeed.</h2>
+<p>One learning platform for Ethiopian students in Grades 9–12.</p>
+<button class="action" onclick="document.getElementById('grades').scrollIntoView()">Explore Grades</button>
+</div>
+
+<section id="grades">
+<h2>Choose Your Grade</h2>
+<div class="grid">
+<div class="card"><h3>Grade 9</h3><button onclick="grade(9)">Explore</button></div>
+<div class="card"><h3>Grade 10</h3><button onclick="grade(10)">Explore</button></div>
+<div class="card"><h3>Grade 11</h3><button onclick="grade(11)">Explore</button></div>
+<div class="card"><h3>Grade 12</h3><button onclick="grade(12)">Explore</button></div>
+</div>
+</section>
+
+<div id="content">
+<h2>Welcome to Ethiopian Study Hub</h2>
+<p>Select a grade to begin learning.</p>
+</div>
+
+<section>
+<h2>Learning Resources</h2>
+<div class="grid">
+<div class="card"><h3>📖 Textbooks</h3><p>Read your school books.</p><button onclick="show('Textbook Library')">Open</button></div>
+<div class="card"><h3>✍️ Practice</h3><p>Improve your knowledge.</p><button onclick="show('Practice Questions')">Open</button></div>
+<div class="card"><h3>🎓 Entrance Exams</h3><p>Prepare for university entrance exams.</p><button onclick="show('Entrance Exams')">Open</button></div>
+<div class="card"><h3>📅 Study Planner</h3><p>Organize your study time.</p><button onclick="show('Study Planner')">Open</button></div>
+<div class="card"><h3>💡 Study Tips</h3><p>Discover effective study methods.</p><button onclick="show('Study Tips')">Open</button></div>
+</div>
+</section>
+</main>
+
+<footer>
+<h2>Professor Aga Bariso Guye</h2>
+<p>Founder and Creator of Ethiopian Study Hub</p>
+<p class="small">Dedicated to helping Ethiopian students learn and succeed.</p>
+<p class="small">© 2026 Ethiopian Study Hub</p>
+</footer>
+
+<script>
+function home(){
+document.getElementById('content').innerHTML='<h2>Welcome to Ethiopian Study Hub</h2><p>Select a grade to begin learning.</p>';
+}
+function grade(n){
+let box=document.getElementById('content');
+if(n===11||n===12){
+box.innerHTML='<h2>Grade '+n+'</h2><p>Choose your stream:</p><div class="grid"><div class="card"><h3>Natural Science</h3><button onclick="stream('+n+',\'Natural Science\')">Select</button></div><div class="card"><h3>Social Science</h3><button onclick="stream('+n+',\'Social Science\')">Select</button></div></div>';
+}else{
+box.innerHTML='<h2>Grade '+n+'</h2><p>Choose a subject from your curriculum. Subject lists will be added after verification.</p><button onclick="show(\'Textbook Library\')">Textbooks</button> <button onclick="show(\'Practice Questions\')">Practice</button>';
+}
+box.scrollIntoView({behavior:'smooth'});
+}
+function stream(n,s){
+document.getElementById('content').innerHTML='<h2>Grade '+n+' — '+s+'</h2><p>Welcome! Your '+s+' learning resources will be organized here.</p><button onclick="show(\'Textbook Library\')">Textbooks</button> <button onclick="show(\'Practice Questions\')">Practice</button>';
+}
+function show(name){
+document.getElementById('content').innerHTML='<h2>'+name+'</h2><p>This section is ready for development. Authentic textbooks, questions and examination papers will be added in the next stages.</p>';
+document.getElementById('content').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
